@@ -3,11 +3,8 @@ from mcp.server.fastmcp import FastMCP
 
 from .tools.restaurants import list_restaurants
 
-mcp = FastMCP(
-    "Workday MCP Server",
-    stateless_http=True,
-    json_response=True,
-)
+mcp = FastMCP("Workday MCP Server")
+
 
 @mcp.tool(
     name="list_restaurants",
@@ -15,6 +12,7 @@ mcp = FastMCP(
 )
 async def list_restaurants_tool():
     return await list_restaurants()
+
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", "8000"))
