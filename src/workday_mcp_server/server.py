@@ -7,6 +7,7 @@ from workday_mcp_server.tools.restaurant_orders import list_restaurant_orders
 from workday_mcp_server.tools.get_restaurant_orders_wql import (
     get_restaurant_orders_wql,
 )
+from workday_mcp_server.tools.patch_restaurant import patch_restaurant
 
 
 mcp = FastMCP("Workday MCP Server")
@@ -31,6 +32,16 @@ async def list_restaurant_orders_tool():
 @mcp.tool()
 async def get_restaurant_orders_wql_tool():
     return await get_restaurant_orders_wql()
+
+
+@mcp.tool()
+async def patch_restaurant_tool(
+    id: str,
+    name: str,
+    type: str,
+    active: bool,
+):
+    return await patch_restaurant(id, name, type, active)
 
 
 if __name__ == "__main__":
