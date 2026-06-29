@@ -3,6 +3,7 @@ import os
 from mcp.server.fastmcp import FastMCP
 
 from workday_mcp_server.tools.restaurants import list_restaurants
+from workday_mcp_server.tools.restaurant_orders import list_restaurant_orders
 
 
 mcp = FastMCP("Workday MCP Server")
@@ -14,6 +15,14 @@ async def list_restaurants_tool():
     Returns the list of restaurants from the Workday REST API.
     """
     return await list_restaurants()
+
+
+@mcp.tool()
+async def list_restaurant_orders_tool():
+    """
+    Returns the list of restaurant orders from the Workday REST API.
+    """
+    return await list_restaurant_orders()
 
 
 if __name__ == "__main__":

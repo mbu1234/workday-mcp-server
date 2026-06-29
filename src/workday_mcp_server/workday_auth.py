@@ -1,11 +1,14 @@
 import os
 import time
+from pathlib import Path
 from typing import Optional
 
 import httpx
 from dotenv import load_dotenv
 
-load_dotenv()
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+load_dotenv(PROJECT_ROOT / ".env")
 
 
 class WorkdayAuthError(Exception):
