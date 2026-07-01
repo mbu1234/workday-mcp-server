@@ -11,6 +11,9 @@ from workday_mcp_server.tools.patch_restaurant import patch_restaurant
 from workday_mcp_server.tools.get_worker_by_name import (
     get_worker_by_name,
 )
+from workday_mcp_server.tools.post_restaurant_order import (
+    post_restaurant_order,
+)
 
 
 mcp = FastMCP("Workday MCP Server")
@@ -54,6 +57,21 @@ async def get_worker_by_name_tool(
     return await get_worker_by_name(worker_name)
 
 
+@mcp.tool()
+async def post_restaurant_order_tool(
+    restaurant_id: str,
+    worker_id: str,
+    order_items_input: str,
+    delivery_date: str,
+    order_address: str,
+):
+    return await post_restaurant_order(
+        restaurant_id,
+        worker_id,
+        order_items_input,
+        delivery_date,
+        order_address,
+    )
 
 
 
