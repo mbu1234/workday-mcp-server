@@ -14,6 +14,9 @@ from workday_mcp_server.tools.get_worker_by_name import (
 from workday_mcp_server.tools.post_restaurant_order import (
     post_restaurant_order,
 )
+from workday_mcp_server.tools.delete_restaurant_order import (
+    delete_restaurant_order,
+)
 
 
 mcp = FastMCP("Workday MCP Server")
@@ -72,6 +75,11 @@ async def post_restaurant_order_tool(
         delivery_date,
         order_address,
     )
+
+
+@mcp.tool()
+async def delete_restaurant_order_tool(id: str):
+    return await delete_restaurant_order(id)
 
 
 

@@ -4,7 +4,7 @@ from workday_mcp_server.workday_auth import get_bearer_token
 
 
 WQL_QUERY = (
-    "SELECT orderMonth, orderYear, "
+    "SELECT workdayID, orderMonth, orderYear, "
     "restaurant{name, type}, "
     "orderItems{itemName,quantity} "
     "FROM wendMealOrderDoNotDelete_zrclrm_restaurantOrders"
